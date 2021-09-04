@@ -1,0 +1,29 @@
+doctype html
+html(lang="ru")
+
+  //head start
+  include ./includes/mixins/head
+  +head("Магазин профессиональной косметики в Минске, купить косметику в Беларуси")
+  //head end
+
+  body.--fixed.__loading
+    //preloader start
+    include ./includes/parts/other/preloader
+    //preloader end
+    
+    //header start
+    include ./includes/parts/main/header
+    //header end
+
+    //page-main start
+    main.main.page-main 
+      .wrapper
+    //page-main end
+    
+    //footer start
+    include ./includes/parts/main/footer
+    //footer end
+
+    include ./includes/parts/other/modal__form.pug
+    include ./includes/parts/other/modal__img.pug
+    include ./includes/parts/other/scripts.pug

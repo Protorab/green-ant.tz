@@ -1,0 +1,9 @@
+mixin img(imgPath,title,addClass,showModal)
+  img.img--full.img--center(
+    src="img/preloader.gif",
+    data-lazy-src!=`${imgPath}`, 
+    alt!=`${title}`,
+    title!=`${title}`,
+    draggable="false",
+    loading="lazy",
+    class!=`${addClass ? `${addClass}` : ""} ${showModal ? showModal : ""} `)

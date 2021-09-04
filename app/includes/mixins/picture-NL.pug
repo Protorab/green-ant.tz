@@ -1,0 +1,16 @@
+mixin picture(imgPath,title,addClass,showModal)
+  picture(
+    itemscope,
+    itemtype='http://schema.org/ImageObject',
+    class=`${addClass ? `${addClass}-picture` : ""}`)
+    source(
+      srcset!=`${imgPath}`,
+      itemprop='contentUrl')
+    img.img--full.img--center(
+      src!=`${imgPath}`, 
+      alt!=`${title}`,
+      title!=`${title}`,
+      draggable="false",
+      loading="lazy",
+      class!=`${addClass ? `${addClass}-image` : ""} ${showModal ? showModal : ""} `,
+      itemprop='contentUrl')
