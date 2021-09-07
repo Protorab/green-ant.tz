@@ -7,7 +7,7 @@ const menuDropdown = () => {
       let dorpMenu = item.parentNode.querySelector(".menu__dropdown");
       let arrow = document.createElement("span");
       arrow.classList.add("arrow");
-      arrow.classList.add("arrow--menu");
+      arrow.classList.add("menu__arrow");
       if (dorpMenu) {
         item.parentNode.appendChild(arrow);
 

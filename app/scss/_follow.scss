@@ -1,0 +1,54 @@
+.follow {
+  &-section {
+    flex-direction: column;
+    // .follow-section__title {
+    &__title {
+      @include adaptive(margin-bottom, 60, 30, 0);
+    }
+  }
+  // .follow-form {
+  &-form {
+    @extend .wrapper;
+    // .follow-form__wrapper {
+    &__wrapper {
+      display: flex;
+      width: 100%;
+      position: relative;
+      justify-content: flex-start;
+      align-items: center;
+      @include adaptive(margin-bottom, 60, 30, 0);
+    }
+    // .follow-form__label {
+    &__label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      @include adaptive(width, 45, 35, 0);
+      background: $mainColor;
+      border-top: 1px solid $accentThirdColor;
+      border-bottom: 1px solid $accentThirdColor;
+      border-left: 1px solid $accentThirdColor;
+
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    // .follow-form__icon {
+    &__icon {
+    }
+    // .follow-form__input {
+    &__input {
+      width: 70%;
+      @include adaptive(padding-left, 45, 35, 0);
+    }
+    // .follow-form__btn {
+    &__btn {
+      max-width: unset;
+      width: 30%;
+      @include adaptive(padding-right, 50, 25, 0);
+      @include adaptive(padding-left, 50, 25, 0);
+    }
+  }
+}

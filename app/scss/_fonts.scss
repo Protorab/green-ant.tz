@@ -1,0 +1,44 @@
+// FONTS LOAD SECTION
+@include font("Circe", normal, 100, "../fonts/Circe-Thin.woff2");
+
+@include font("Circe", normal, 300, "../fonts/CeraPro-Light.woff2");
+@include font("Circe", italic, 300, "../fonts/CeraPro-LightItalic.woff2");
+
+@include font("CeraPro", normal, 400, "../fonts/CeraPro-Regular.woff2");
+@include font("CeraPro", italic, 400, "../fonts/CeraPro-Italic.woff2");
+
+@include font("CeraPro", normal, 500, "../fonts/CeraPro-Medium.woff2");
+@include font("CeraPro", italic, 500, "../fonts/CeraPro-MediumItalic.woff2");
+
+@include font("CeraPro", italic, 700, "../fonts/CeraPro-BoldItalic.woff2");
+
+@include font("CeraPro", normal, 900, "../fonts/CeraPro-Black.woff2");
+@include font("CeraPro", italic, 900, "../fonts/CeraPro-BlackItalic.woff2");
+
+@include font("Cormorant", normal, 100, "../fonts/Cormorant-Thin.woff2");
+@include font("Cormorant", italic, 100, "../fonts/Cormorant-ThinItalic.woff2");
+
+@include font("Cormorant", normal, 300, "../fonts/Cormorant-Light.woff2");
+@include font("Cormorant", normal, 300, "../fonts/Cormorant-LightItalic.woff2");
+
+@include font("Cormorant", normal, 400, "../fonts/Cormorant-Regular.woff2");
+@include font("Cormorant", italic, 400, "../fonts/Cormorant-Italic.woff2");
+
+@include font("Cormorant", normal, 500, "../fonts/Cormorant-Medium.woff2");
+@include font(
+  "Cormorant",
+  italic,
+  500,
+  "../fonts/Cormorant-MediumItalic.woff2"
+);
+
+@include font("Cormorant", normal, 600, "../fonts/Cormorant-SemiBold.woff2");
+@include font(
+  "Cormorant",
+  italic,
+  600,
+  "../fonts/Cormorant-SemiBoldItalic.woff2"
+);
+
+@include font("Cormorant", normal, 700, "../fonts/Cormorant-Bold.woff2");
+@include font("Cormorant", italic, 700, "../fonts/Cormorant-BoldItalic.woff2");

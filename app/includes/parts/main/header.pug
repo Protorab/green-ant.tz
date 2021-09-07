@@ -1,5 +1,5 @@
-header.header
-  .wrapper.header-wrapper
+header#header.header
+  .header__wrapper
     a.menu__burger(
       href="#",
       role="button",
@@ -8,22 +8,86 @@ header.header
       span
       span
       span
-    a.logo.header-logo(href="#")
+    a.logo.header__logo(href="index.html")
       include ./../../mixins/img-NL
       +img(
-        "./img/favicon.png",
-        "logo")
-    include ./../../mixins/menu.pug
-    +menu([
-            ["item-1","#link-1"],
-            ["item-2","#link-2"],
-            ["item-3","#link-3"],
-            ["item-4","#link-4"],
-            ["item-5","#link-5"],
-            ["item-6","#link-6"]
-          ])
-    a.btn.show-modal(
-      tabindex="0",
-      href="#modal__form", 
-      role="button",
-      aria-label="Кнопка оставить заявку") button
+        "./img/logo.svg",
+        "Магазин профессиональной косметики в Минске, купить косметику в Беларуси")
+    include ./../../mixins/menu
+    +menu(
+      [
+        ["Каталог","#catalog",
+          [
+            ["категория - 1","#category-1"],
+            ["категория - 2","#category-2"],
+            ["категория - 3","#category-3"],
+            ["категория - 4","#category-4"]
+          ]
+        ],
+        ["Бренды","#brands",
+          [
+            ["Бренд - 1","#brand-1"],
+            ["Бренд - 2","#brand-2"],
+            ["Бренд - 3","#brand-3"],
+            ["Бренд - 4","#brand-4"],
+            ["Бренд - 5","#brand-5"]
+          ]
+        ],
+        ["Блог","#blog"],
+        ["О нас","#about"],
+        ["Сотрудничество","#cooperation"],
+        ["Покупателю","#buyer-info",
+          [
+            ["Покупателю - 1","#buyer-info-1"],
+            ["Покупателю - 2","#buyer-info-2"],
+            ["Покупателю - 3","#buyer-info-3"]
+          ]
+        ]
+      ])
+    .header__links
+      a.header__link.show-modal(
+        role="button",
+        area-label="Кнопка поиска",
+        href="#modal__search")
+        i.header__link-icon
+          include ./../../mixins/img-NL
+          +img(
+            "./img/icons/icon-search.svg",
+            "Кнопка поиска")
+      a.header__link(
+        area-label="Ссылка на корзину",
+        href="#page-cart.html")
+        i.header__link-icon
+          include ./../../mixins/img-NL
+          +img(
+            "./img/icons/icon-cart.png",
+            "Корзина")
+      a.header__link(
+        area-label="Ссылка на избранное",
+        href="#page-cart.html")
+        i.header__link-icon
+          include ./../../mixins/img-NL
+          +img(
+            "./img/icons/icon-favorites.png",
+            "Избранное")
+      a.header__link(
+        area-label="Ссылка на личный кабинет",
+        href="#page-cart.html")
+        i.header__link-icon
+          include ./../../mixins/img-NL
+          +img(
+            "./img/icons/icon-user.svg",
+            "Личный кабинет")
+    include ./../../mixins/select-phone
+    +select(
+      "header__phone",
+      "header",
+      "+375 (33) 382-31-38",
+      "",
+      [
+        ["+375 (33) 382-31-31"],
+        ["+375 (33) 382-31-32"],
+        ["+375 (33) 382-31-33"],
+        ["+375 (33) 382-31-34"]
+      ],
+      "header__phone")

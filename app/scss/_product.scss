@@ -1,0 +1,322 @@
+.product {
+  &-card {
+    // .product-card__section {
+    &__section {
+      @include adaptive(padding-top, 60, 30, 0);
+      // @include adaptive(padding-bottom, 50, 25, 0);
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    // .product-card-picture {
+    &-picture {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 34%;
+      @include adaptive(height, 600, 300, 0);
+      @include adaptive(margin-right, 65, 30, 0);
+      img {
+        max-width: 100%;
+        width: auto;
+        max-height: 100%;
+        height: auto;
+      }
+    }
+    // .product-card-description {
+    &-description {
+      width: 60%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    // .product-card-info {
+    &-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      @include adaptive(margin-bottom, 30, 20, 0);
+      color: $textSecondColor;
+
+      // .product-card-info__brand
+      &__brand {
+        @extend .p;
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: $textSecondColor;
+
+        // .product-card-info__brand-title {
+        &-title {
+          @include adaptive(margin-right, 10, 5, 0);
+        }
+
+        // .product-card-info__brand-link {
+        &-link {
+          position: relative;
+          display: inline-flex;
+          width: fit-content;
+          @include _transition(all, 0.35s);
+          -webkit-text-stroke: 1px transparent;
+
+          &::before,
+          &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            @include _transition(all, 0.35s);
+          }
+          &::before {
+            transform-origin: left center;
+            background: $textSecondColor;
+          }
+          &::after {
+            transform-origin: right center;
+            transform: scale(0, 1);
+            background: $accentSecondColor;
+          }
+          @media only screen and (min-width: 1152px) {
+            &:hover {
+              color: $accentSecondColor;
+              -webkit-text-stroke-color: $accentSecondColor;
+
+              &::before {
+                transform: scale(0, 1);
+              }
+              &::after {
+                transform: scale(1, 1);
+              }
+            }
+          }
+        }
+      }
+    }
+    // .product-card__title {
+    &__title {
+      @extend .t2;
+      font-weight: 500;
+      @include adaptive(margin-bottom, 30, 20, 0);
+      width: 100%;
+      display: none;
+      @media only screen and (min-width: 600px) {
+        &:not(&.__mobile) {
+          display: inline-flex;
+        }
+      }
+      &.__mobile {
+        @media only screen and (max-width: 600px) {
+          display: inline-flex;
+        }
+      }
+    }
+    // .product-card__size {
+    &__size {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      @include adaptive(margin-bottom, 40, 30, 0);
+
+      // .product-card__size-item {
+      &-item {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        @include adaptive(padding-top, 10, 5, 0);
+        @include adaptive(padding-right, 20, 10, 0);
+        @include adaptive(padding-bottom, 10, 5, 0);
+        @include adaptive(padding-left, 20, 10, 0);
+        @include adaptive(margin-right, 20, 10, 0);
+
+        @include _borderRadius(50px);
+        @include _transition(all, 0.35s);
+        border: 1px solid $textSecondColor;
+
+        // .product-card__size-item.__clicked {
+        &.__clicked {
+          background: $textSecondColor;
+          color: $mainColor;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        @media only screen and (min-width: 1152px) {
+          &:hover {
+            background: $textSecondColor;
+            color: $mainColor;
+          }
+        }
+      }
+    }
+    // .product-card__price {
+    &__price {
+      @extend .t2;
+      font-family: $userFont;
+      font-style: normal;
+      font-weight: 500;
+      @include adaptive(margin-bottom, 40, 30, 0);
+    }
+    // .product-card__btns {
+    &__btns {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      @include adaptive(margin-bottom, 70, 30, 0);
+    }
+
+    // .product-card__counter Х
+    &__counter {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      // .product-card__counter-btn {
+      &-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $accentColor;
+        @include adaptive(width, 50, 25, 0);
+        @include adaptive(min-width, 50, 25, 0);
+        @include adaptive(height, 50, 25, 0);
+        position: relative;
+        background: $mainColor;
+        @include _transition(all, 0.35s);
+
+        &::before,
+        &::after {
+          content: "";
+          @include adaptive(width, 10, 10, 0);
+          @include adaptive(min-width, 10, 10, 0);
+          height: 1px;
+          background: $textSecondColor;
+          position: absolute;
+          @include _transition(all, 0.35s);
+        }
+
+        &::after {
+          transform: rotate(90deg);
+        }
+
+        &.inc {
+          &::after {
+            display: none;
+          }
+        }
+        &.__disable {
+          opacity: 0.3;
+        }
+
+        @media only screen and (min-width: 1152px) {
+          &:hover {
+            background: $textSecondColor;
+            color: $mainColor;
+
+            &::before,
+            &::after {
+              background: $mainColor;
+            }
+          }
+        }
+      }
+
+      // .product-card__counter-number {
+      &-number {
+        @extend .t6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $mainColor;
+        color: $textSecondColor;
+        // @include adaptive(width, 50, 25, 0);
+        @include adaptive(min-width, 50, 25, 0);
+        @include adaptive(height, 50, 25, 0);
+      }
+    }
+    // .product-card__btn {
+    &__btn {
+      @include adaptive(margin-right, 15, 10, 0);
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    // .product-card__order-btn {
+    &__order-btn {
+      max-width: unset;
+      width: fit-content;
+      @include adaptive(padding-right, 40, 20, 0);
+      @include adaptive(padding-left, 40, 20, 0);
+
+      .btn__title {
+        margin-left: 0;
+      }
+    }
+    // product-card__favorite-btn
+    &__favorite-btn {
+      @include adaptive(max-width, 50, 25, 0);
+      @include adaptive(width, 50, 25, 0);
+      @include adaptive(min-width, 50, 25, 0);
+      @include adaptive(height, 50, 25, 0);
+    }
+    // .product-card__collapsible {
+    &__collapsible {
+      justify-content: flex-start;
+      @include adaptive(padding-top, 10, 10, 0);
+      @include adaptive(padding-bottom, 20, 15, 0);
+
+      // .product-card__collapsible-arrow {
+      &-arrow {
+        @include adaptive(margin-right, 25, 20, 0);
+        width: 17px;
+      }
+      // .product-card__collapsible-title {
+      &-title {
+        @extend .t3;
+        font-family: $userFont;
+        font-weight: normal;
+      }
+
+      // .product-card__collapsible-content
+      &-content {
+        // .product-card__collapsible-content__wrapper
+
+        &__wrapper {
+          @include adaptive(padding-top, 10, 5, 0);
+          @include adaptive(padding-bottom, 30, 20, 0);
+          @include adaptive(padding-left, 42, 37, 0);
+
+          h {
+            @for $i from 1 through 6 {
+              &#{$i} {
+                @include adaptive(margin-bottom, 15, 10, 0);
+              }
+            }
+          }
+
+          a {
+            @include _transition(all, 0.35s);
+            border-bottom: 1px dashed $textColor;
+            -webkit-text-stroke: 1px transparent;
+
+            &:hover {
+              -webkit-text-stroke-color: $textColor;
+            }
+          }
+
+          p {
+            @include adaptive(margin-bottom, 10, 5, 0);
+            &:last-of-type,
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+section.section.follow-section 
+  h3.section__title.follow-section__title.animate.scroll.hr СЛЕДИТЕ ЗА ОБНОВЛЕНИЯМИ
+  form.follow-form.animate.scroll(action="#", method="post")
+    span.follow-form__wrapper
+      label.follow-form__label(for="fallow") 
+        i.follow-form__icon
+          include ./../../mixins/img-NL
+          +img("./img/icons/icon-envelope.svg",
+          "подписаться на рассылку")
+      input.input.follow-form__input(
+        id="fallow"
+        name="fallow",
+        required,
+        placeholder="Введите ваш e-mail",
+        type="email"
+      )
+      button.reset.follow-form__reset(type="reset") 
+        i.reset__icon.follow-form__reset-icon
+      button.btn.follow-form__btn(type="submit") подписаться на рассылку

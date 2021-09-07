@@ -1,17 +1,19 @@
-mixin breadcrumb(levels)
+mixin breadcrumbs(levels)
   
-  nav.breadcrumbs(aria-label="breadcrumb")
+  nav.breadcrumbs.animate(aria-label="breadcrumb")
     .container
-      ul(itemscope itemtype="http://schema.org/BreadcrumbList")
+      ul.breadcrumbs__list(itemscope itemtype="http://schema.org/BreadcrumbList")
 
         each item, index in levels
           - var count = index+1
           - var name = item[0]
           - var link = item[1] || null
 
-          li.breadcrumb__item(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+          li.breadcrumbs__item(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
             if link
-              a(href=link aria-level!=count)
+              a.breadcrumbs__link(
+                itemprop="item",
+                href=link)
                 span(itemprop="name") #{name}
             else
               span(itemprop="name") #{name}

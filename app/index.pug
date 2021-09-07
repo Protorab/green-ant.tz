@@ -16,8 +16,42 @@ html(lang="ru")
     //header end
 
     //page-main start
-    main.main.page-main 
+    main.main.page-product-card 
       .wrapper
+        //breadcrumbs start
+        include ./includes/mixins/breadcrumbs
+        +breadcrumbs([
+          [
+            "Каталог",
+            "#page-catalog"
+          ],
+          [
+            "Волосы",
+            "#page-catalog-hair"
+          ],
+          [
+            "Бальзамы",
+            "#page-catalog-balsam"
+          ],
+          [
+            "Alfaparf Milano SDL Diamond Normal Hair Кондиционер придающий блеск для нормальных волос",
+            "#"
+          ]
+          ])
+        //breadcrumbs end
+        
+        //product-card-section start
+        include ./includes/parts/sections/section-product-card
+        //product-card-section end
+
+        //related section start
+        include ./includes/parts/sections/section-related
+        //related section end
+
+        //follow start
+      include ./includes/parts/sections/section-follow
+        //follow end
+
     //page-main end
     
     //footer start

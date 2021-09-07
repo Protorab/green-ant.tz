@@ -1,10 +1,182 @@
 .footer {
   margin-top: auto;
+  position: relative;
 
-  &-wrapper {
-    padding: 10px 0;
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: $textColor;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  // .footer__wrapper {
+  &__wrapper {
+    @extend .wrapper;
+    @include adaptive(padding-top, 40, 35, 0);
+    @include adaptive(padding-bottom, 20, 15, 0);
     flex-direction: row;
     justify-content: space-between;
+    align-items: stretch;
+  }
+
+  // .footer__logo {
+  &__logo {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    @include adaptive(width, 130, 65, 0);
+    @include adaptive(min-width, 130, 65, 0);
+    @include adaptive(height, 30, 25, 0);
+    @include adaptive(margin-right, 60, 30, 0);
+
+    img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+  // .footer__coll {
+  &__coll {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    color: $textThirdColor;
+    width: 20%;
+  }
+  // .footer__info {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    @include adaptive(font-size, 12, 12, 0);
+    // .footer__info-item {
+    &-item {
+      &:first-child {
+        @include adaptive(margin-bottom, 15, 10, 0);
+      }
+    }
+  }
+
+  // .footer__menu {
+  &__menu {
+    display: grid;
+    @include adaptive(grid-row-gap, 10, 5, 0);
+    @include adaptive(grid-column-gap, 60, 5, 0);
+    // .footer__menu--catalog {
+    &--catalog {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // .footer__menu-nav {
+    &-nav {
+      display: flex;
+      flex-direction: column;
+
+      // .footer__menu-nav--catalog
+      &--catalog {
+        width: 15%;
+      }
+      // .footer__menu-nav--buyer-info {
+      &--buyer-info {
+        width: 10%;
+      }
+      // .footer__menu-nav--cooperation {
+      &--cooperation {
+        width: 15%;
+      }
+      // .footer__menu-nav--contacts {
+      &--contacts {
+        width: 15%;
+      }
+    }
+    // .footer__menu-item {
+    &-item {
+    }
+
+    // .footer__menu-title {
+    &-title {
+      @extend .t6;
+      font-family: $userFont;
+      color: $textColor;
+      @include adaptive(margin-bottom, 20, 15, 0);
+    }
+    // .footer__menu-item {
+    &-item {
+      @include _transition(all, 0.35s);
+      // .footer__menu-item--catalog {
+      &--catalog {
+        &:nth-child(2) {
+          grid-row: 1;
+
+          grid-column: 2;
+        }
+        &:nth-child(4),
+        &:nth-child(5) {
+          grid-column: 1;
+        }
+        &:nth-child(6) {
+          grid-row: 2/5;
+          grid-column: 2;
+        }
+      }
+      * {
+        @include _transition(all, 0.35s);
+      }
+    }
+    // .footer__menu-link {
+    &-link {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: $accentThirdColor;
+      -webkit-text-stroke: 1px transparent;
+      @include adaptive(font-size, 12, 12, 0);
+      &[href^="tel"] {
+        @extend .t6;
+        font-family: $userFont;
+      }
+      // .footer__menu-link__title {
+      &__title {
+      }
+      // .footer__menu-link__icon {
+      &__icon {
+        @include adaptive(width, 15, 16, 0);
+        @include adaptive(min-width, 15, 16, 0);
+        @include adaptive(height, 15, 16, 0);
+        @include adaptive(margin-right, 10, 10, 0);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          object-position: bottom center;
+        }
+      }
+      @media only screen and (min-width: 1152px) {
+        &:hover {
+          color: $accentColor;
+          -webkit-text-stroke-color: $accentColor;
+          .footer {
+            &__menu {
+              &-link {
+                &__icon {
+                  img {
+                    object-position: top center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

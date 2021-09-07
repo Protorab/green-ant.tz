@@ -21,12 +21,12 @@ mixin menu(menuItems)
             href=`${link}`)!=title
           //menu__link end
 
-          if menuDropdownItems>0
+          if menuDropdownItems
 
             //menu__dropdown start
             ul.menu__dropdown
               each menuDropdownItem, idxDrop in menuDropdownItems
-                - var count = idx+1
+                - var count = idxDrop+1
                 - var dropTitle = menuDropdownItem[0]
                 - var dropLink = menuDropdownItem[1]
 

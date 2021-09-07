@@ -1,6 +1,7 @@
 const blink = (e, time) => {
   const _this = e.currentTarget;
   const span = document.createElement("span");
+  span.classList.add("blink");
   let targetCoords = e.currentTarget.getBoundingClientRect();
   _this.appendChild(span);
   let yCoord = e.clientY - targetCoords.top;

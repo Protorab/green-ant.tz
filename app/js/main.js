@@ -1,5 +1,5 @@
 // import inputmask
-import inputmask from "inputmask";
+// import inputmask from "inputmask";
 
 // import attrClear function
 import attrClear from "./functions/attrClear";
@@ -17,24 +17,28 @@ import btnsFunc from "./functions/btns";
 import observer from "./functions/lazyLoading";
 
 // import customSelectFunc functions
-// import customSelectFunc from "./functions/customSelect";
+import customSelectFunc from "./functions/customSelect";
 
 // import tabsChange functions
 // import tabsChange from "./functions/tabsChange";
 
 // import collapsibleFunc function
-// import collapsibleFunc from "./functions/collapsible";
+import collapsibleFunc from "./functions/collapsible";
 
 // import lazyBg function
 import lazyBg from "./functions/lazyBg";
 
+//import swiperJsSliders function
+import swiperJsSliders from "./functions/swiperJsSliders";
 // import ytPlayer function
 // import ytPlayer from "./functions/youtubePlayer";
 
 // import menuDropdown function
-// import menuDropdown from "./functions/menuDropdown";
+import menuDropdown from "./functions/menuDropdown";
 // import showVisible
 import showVisible from "./functions/showVisible";
+
+import setMarginTop from "./functions/setMarginTop";
 
 document.addEventListener("DOMContentLoaded", () => {
   // variable start
@@ -46,25 +50,74 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalCloseIcons = document.querySelectorAll(".close__modal");
   const body = document.querySelector("body");
   const breadcrumb = document.querySelector(".breadcrumb");
+  const currentYear = document.querySelector(".current__year");
   const lazyImages = document.querySelectorAll(
     "img[data-lazy-src],source[data-lazy-srcset] "
   );
+  const productCardSizes = document.querySelectorAll(
+    ".product-card__size-item"
+  );
+  const main = document.querySelector(".main");
+  const preloaderProgress = document.querySelector(".preloader__progress");
+
   const animateItems = document.querySelectorAll(".animate");
 
   // variable end
 
   // function call start
   // ytPlayer();
+  swiperJsSliders();
   lazyBg();
   modalWindowInit();
   btnsFunc();
-  showVisible();
+
   window.onscroll = showVisible;
-  // menuDropdown();
-  // customSelectFunc();
-  // collapsibleFunc();
+  menuDropdown();
+  customSelectFunc();
+  collapsibleFunc();
+  const setMainMarginTop = () => {
+    if (main) {
+      !main.classList.contains("mt__nan")
+        ? setMarginTop("#header", ".main")
+        : "";
+    }
+  };
+  setMainMarginTop();
   // tabsChange();
   // function call end
+  if (productCardSizes.length > 0) {
+    productCardSizes.forEach((element) => {
+      element.addEventListener("click", (e) => {
+        // e.preventDefault();
+        let _this = e.currentTarget;
+        let productCardSizesClicked = document.querySelector(
+          ".product-card__size-item.__clicked"
+        );
+        productCardSizesClicked
+          ? productCardSizesClicked.classList.remove("__clicked")
+          : "";
+        element.classList.remove("__clicked");
+        !_this.classList.contains("__clicked")
+          ? _this.classList.add("__clicked")
+          : "";
+      });
+    });
+  }
+
+  if (animateItems.length > 0) {
+    animateItems.forEach((item) => {
+      if (!item.classList.contains("scroll")) {
+        setInterval(() => {
+          item.classList.add("__show");
+        }, 1000);
+      }
+    });
+  }
+
+  if (currentYear) {
+    const year = new Date().getFullYear();
+    currentYear.innerHTML = year;
+  }
   setTimeout(() => {
     let body = document.querySelector("body");
     body.classList.add("__loading");
@@ -118,17 +171,28 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // set Belarus phone mask
-  let phoneMaskBy = new inputmask({
-    mask: "+375-99-999-99-99",
-    clearIncomplete: true,
-    greedy: false,
-  });
+  // let phoneMaskBy = new inputmask({
+  //   mask: "+375-99-999-99-99",
+  //   clearIncomplete: true,
+  //   greedy: false,
+  // });
 
   // inputmask for phone input
   if (phoneInput.length > 0) {
-    phoneInput.forEach((phoneMask) => {
-      phoneMaskBy.mask(phoneMask);
+    phoneInput.forEach((input) => {
+      input.addEventListener("input", function (e) {
+        var x = e.target.value
+          .replace(/\D/g, "")
+          .match(/(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+        e.target.value = !x[2]
+          ? x[1]
+          : "(" + x[1] + ") " + x[2] + (x[3] ? "-" + x[3] + "-" + x[4] : "");
+      });
     });
+
+    // phoneInput.forEach((phoneMask) => {
+    //   phoneMaskBy.mask(phoneMask);
+    // });
   }
 
   // phone link clear white space
@@ -162,4 +226,21 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault;
     });
   }
+  window.onresize = function () {
+    setMainMarginTop();
+    setTimeout(() => {
+      setMainMarginTop();
+    }, 1000);
+  };
+  window.onscroll = function () {
+    showVisible();
+    let header = document.querySelector("#header");
+    let topScroll;
+    header
+      ? (window.innerWidth <= 800 ? (topScroll = 10) : (topScroll = 0),
+        this.pageYOffset > topScroll
+          ? header.classList.add("__scrolled")
+          : header.classList.remove("__scrolled"))
+      : "";
+  };
 });

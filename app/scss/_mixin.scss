@@ -5,7 +5,7 @@
     src: url($furl);
     font-style: $fstyle;
     font-weight: $fweight;
-    // font-display: swap // Uncomment to initially display system fonts
+    font-display: swap; // Uncomment to initially display system fonts
   }
 }
 

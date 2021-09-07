@@ -1,0 +1,36 @@
+mixin related-slide(imgPath,title,currentPrice,oldPrice,description,label)
+  article.related-slide.swiper-slide
+    if label
+      span.label.label-sale.related-slide__label!=label
+    a.related-slide__favorite(href="#") 
+      i.related-slide__favorite-icon
+        include ./img-NL
+        +img(
+          "./img/icons/icon-favorites.png",
+          "добавить в избранное")
+    .related-slide__picture
+      img.related-slide__img.img--full.img--center.swiper-lazy(
+        src="./img/preloader.gif",
+        data-src!=`${imgPath}`, 
+        alt!=`${title}`,
+        title!=`${title}`,
+        draggable="false",
+        loading="lazy")
+    .related-slide__row
+      h5.related-slide__title!=title
+      .related-slide__prices
+        h5.related-slide__current-price!=currentPrice
+        strike.related-slide__old-price!=oldPrice
+    .related-slide__description
+      p!=description
+    .related-slide__btns
+      a.btn.related-slide__btn(
+        role="button",
+        href="#") быстрая покупка
+      a.btn.btn-active.related-slide__order(href="#")
+        i.btn__icon.related-slide__btn-icon
+          include ./img-NL
+          +img(
+            "./img/icons/icon-cart.png",
+            "в корзину")
+    a.related-slide__link(href="") 

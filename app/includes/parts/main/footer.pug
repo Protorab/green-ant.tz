@@ -1,8 +1,78 @@
 footer.footer
-  .wrapper.footer-wrapper
-    a.logo.header-logo(href="#")
-      include ./../../mixins/img-NL
-      +img(
-        "./img/favicon.png",
-        "logo")
+  .footer__wrapper
+    .footer__coll 
+      a.logo.footer__logo(href="#")
+        include ./../../mixins/img-NL
+        +img(
+            "./img/logo.svg",
+            "Магазин профессиональной косметики в Минске, купить косметику в Беларуси")
+      .footer__info
+        .footer__info-item ООО "3Д Унитрейд" УНП 291610192
+        .footer__info-item © CosPro <span class="current__year">2022</span>
+        .footer__info-item Интернет-магазин косметики и парфюмерии
+    nav.footer__menu-nav.footer__menu-nav--catalog
+      h6.footer__menu-title.footer__menu-title--catalog Каталог
+      ul.footer__menu.footer__menu--catalog
+        li.footer__menu-item.footer__menu-item--catalog
+          a.footer__menu-link.footer__menu-link--catalog(href="#") Кожа
+        li.footer__menu-item.footer__menu-item--catalog
+          a.footer__menu-link.footer__menu-link--catalog(href="#") Для мужчин
+        li.footer__menu-item.footer__menu-item--catalog
+          a.footer__menu-link.footer__menu-link--catalog(href="#") Волосы 
+        li.footer__menu-item.footer__menu-item--catalog
+          a.footer__menu-link.footer__menu-link--catalog(href="#") Ногти
+        li.footer__menu-item.footer__menu-item--catalog
+          a.footer__menu-link.footer__menu-link--catalog(href="#") Удаление волос
+        li.footer__menu-item.footer__menu-item--catalog
+          a.footer__menu-link.footer__menu-link--catalog(href="#") Инструменты и аксессуары для парикмахера
+    nav.footer__menu-nav.footer__menu-nav--buyer-info
+      h6.footer__menu-title.footer__menu-title--buyer-info Покупателю
+      ul.footer__menu.footer__menu--buyer-info
+        li.footer__menu-item.footer__menu-item--buyer-info
+          a.footer__menu-link.footer__menu-link--buyer-info(href="#") Оплата и доставка
+        li.footer__menu-item.footer__menu-item--buyer-info
+          a.footer__menu-link.footer__menu-link--buyer-info(href="#") Где купить
+        li.footer__menu-item.footer__menu-item--buyer-info
+          a.footer__menu-link.footer__menu-link--buyer-info(href="#") Условия покупки
+    nav.footer__menu-nav.footer__menu-nav--cooperation
+      h6.footer__menu-title.footer__menu-title--cooperation Сотрудничество
+      ul.footer__menu.footer__menu--cooperation
+        li.footer__menu-item.footer__menu-item--cooperation
+          a.footer__menu-link.footer__menu-link--cooperation(href="#") Обучение
+        li.footer__menu-item.footer__menu-item--cooperation
+          a.footer__menu-link.footer__menu-link--cooperation(href="#") Условия сотрудничества
+    nav.footer__menu-nav.footer__menu-nav--contacts
+      h6.footer__menu-title.footer__menu-title--contacts Контакты
+      ul.footer__menu.footer__menu--contacts
+        li.footer__menu-item.footer__menu-item--contacts
 
+          a.footer__menu-link.footer__menu-link--cooperation(
+            href="tel:+375 33 382 31 38",
+            target="_blank") 
+            i.footer__menu-link__icon 
+              include ./../../mixins/img-NL
+              +img(
+                "./img/icons/icon-phone-double.svg",
+                "телефон")
+            | +375 33 382 31 38
+        li.footer__menu-item.footer__menu-item--contacts
+          a.footer__menu-link.footer__menu-link--cooperation(
+            href="mailto:info@cospro.by",
+            target="_blank") 
+            i.footer__menu-link__icon 
+              include ./../../mixins/img-NL
+              +img(
+                "./img/icons/icon-envelope-double.svg",
+                "телефон")
+            | info@cospro.by
+        li.footer__menu-item.footer__menu-item--contacts
+          a.footer__menu-link.footer__menu-link--cooperation(
+            href="https://www.instagram.com/profi.minsk/",
+            target="_blank",
+            rel="noopener noreferrer") 
+            i.footer__menu-link__icon 
+              include ./../../mixins/img-NL
+              +img(
+                "./img/icons/icon-inst-double.svg",
+                "телефон") 
+            | cospro.by

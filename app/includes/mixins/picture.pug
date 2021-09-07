@@ -1,5 +1,5 @@
-mixin picture(imgPath,title,addClass,showModal)
-  picture(class=`${addClass ? `${addClass}-picture` : ""}`) 
+mixin picture(imgPath,title,addClass,showModal,animate)
+  picture(class=`${addClass ? `${addClass}-picture` : ""} ${animate ? animate : ""}`) 
     source(
       srcset="img/preloader.gif", 
       data-lazy-srcset!=`${imgPath}`)

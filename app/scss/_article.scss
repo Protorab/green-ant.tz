@@ -22,7 +22,7 @@
   }
   mark {
     color: $mainColor;
-    background: $accent;
+    background: $accentColor;
   }
   h {
     @for $i from 1 through 6 {
@@ -43,7 +43,7 @@
     @include _transition(all, 0.35s);
 
     &:hover {
-      color: $accent;
+      color: $accentColor;
     }
   }
 
@@ -73,6 +73,6 @@
   hr {
     @include adaptive(width, 100, 50, 0);
     height: 2px;
-    background: $accent;
+    background: $accentColor;
   }
 }

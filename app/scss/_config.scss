@@ -1,27 +1,21 @@
 // USER VARIABLES SECTION
-$accent: #5bd2f3; // Accent Color
-$accentSecond: #e7552b; // Accent Second Color
-$accentThird: #f0a21a; // Accent Third Color
-$mainColor: #1b556f; // Body Background Color
+$accentColor: #515855; // Accent Color
+$accentSecondColor: #d0c3b0; // Accent Second Color
+$accentThirdColor: #777777; // Accent Third Color
+$mainColor: #fff; // Body Background Color
 $fontSize: 10px; // Body Font Size
-$textColor: #eaf2f5; // Text Color
-$textSecondColor: #b0b1b1; // Text Color
+$textColor: #080508; // Text Color
+$textSecondColor: #515855; // Text Color
+$textThirdColor: #777777; // Text Color
+
 $lineHeight: 1.65; // Document Line Height
-$userFont: Roboto, sans-serif; // User Font Family
+$userFont: CeraPro, sans-serif; // User Font Family
+$userAltFont: Cormorant, sans-serif; // User Font Family
+
 $systemFont: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
 $maxWidth: 1920;
 $maxWidthContainer: 1300;
 
-// FONTS LOAD SECTION
-@include font("Roboto", normal, 400, "../fonts/roboto-regular-webfont.woff2");
-@include font("Roboto", italic, 400, "../fonts/roboto-italic-webfont.woff2");
-@include font("Roboto", normal, 700, "../fonts/roboto-bold-webfont.woff2");
-@include font(
-  "Roboto",
-  italic,
-  700,
-  "../fonts/roboto-bolditalic-webfont.woff2"
-);
 // ZEROING SECTION
 * {
   margin: 0;
@@ -149,7 +143,7 @@ body {
   background: $mainColor;
   color: $textColor;
   min-width: 320px;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -174,7 +168,6 @@ section,
     filter: blur(10px);
   }
 }
-
 .wrapper {
   max-width: 1650px;
   width: calc(100% - 80px);
@@ -197,19 +190,6 @@ section,
     width: calc(100% - 30px);
   }
 }
-
-// .schema-org {
-//   position: absolute;
-//   visibility: hidden;
-//   opacity: 0;
-//   overflow: hidden;
-//   width: 0;
-//   height: 0;
-//   z-index: -9999;
-//   left: 0;
-//   top: 0;
-// }
-
 .img {
   //.img--full
   &--fullW {
@@ -262,132 +242,6 @@ section,
       transform: translate(0, 0%);
     }
   }
-}
-input,
-textarea {
-  @include _transition(all, 0.5s);
-  @extend .p;
-  @include _borderRadius(5px);
-  padding: 10px;
-  height: 35px;
-  border: none;
-  background: #060b0d;
-  color: $textColor;
-}
-
-textarea {
-  height: 150px;
-}
-// .arrow
-.arrow {
-  position: relative;
-  height: 10px;
-  width: 10px;
-  cursor: pointer;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    width: 0.15rem;
-    height: 100%;
-    transition: all 0.5s;
-  }
-
-  &::before {
-    left: -2.7px;
-    transform: rotate(-45deg);
-    background-color: $textSecondColor;
-  }
-
-  &::after {
-    left: 2.7px;
-    transform: rotate(45deg);
-    background-color: $textSecondColor;
-  }
-
-  .open &::before,
-  .active &::before {
-    left: -2.7px;
-    transform: rotate(45deg);
-  }
-
-  .open &::after,
-  .active &::after {
-    left: 2.7px;
-    transform: rotate(-45deg);
-  }
-
-  // .arrow--menu
-  &--menu {
-    // transform: scale(1, -1);
-  }
-}
-
-// .triangle
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid $textColor;
-  border-bottom: 0px solid transparent;
-  @include _transition(all, 0.5s);
-
-  .open &,
-  .active & {
-    border-top: 0px solid transparent;
-    border-bottom: 10px solid $textColor;
-  }
-}
-
-.main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 105px;
-}
-
-ol {
-  list-style: none;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  margin: -10px;
-  flex-wrap: wrap;
-  width: 100%;
-
-  @media only screen and (min-width: 800px) {
-    margin: get-vw(-10px);
-  }
-}
-
-.coll {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 100%;
-  margin: 10px;
-
-  @media only screen and (min-width: 800px) {
-    width: 100%;
-    @include coll(2, 20px);
-    margin: get-vw(10px);
-  }
-}
-
-::placeholder {
-  color: $textColor;
-}
-
-::selection {
-  background-color: $accent;
-  color: #fff;
 }
 
 input,
@@ -487,6 +341,130 @@ textarea {
 textarea {
   resize: none;
 }
+textarea {
+  height: 150px;
+}
+// .arrow
+.arrow {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    @include _transition(all, 0.35s);
+    background-color: $textSecondColor;
+  }
+
+  &::before {
+    right: 0px;
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    left: 0px;
+    transform: rotate(45deg);
+  }
+
+  .open &::before,
+  .active &::before {
+    right: 1px;
+    transform: rotate(45deg);
+  }
+
+  .open &::after,
+  .active &::after {
+    left: 1px;
+    transform: rotate(-45deg);
+  }
+
+  // .arrow--menu
+  &--menu {
+    // transform: scale(1, -1);
+  }
+}
+
+// .triangle
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid $textColor;
+  border-bottom: 0px solid transparent;
+  @include _transition(all, 0.5s);
+
+  .open &,
+  .active & {
+    border-top: 0px solid transparent;
+    border-bottom: 10px solid $textColor;
+  }
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  // padding-top: 105px;
+}
+.page {
+  &-product {
+    // .page-product-card {
+    &-card {
+      @include adaptive(padding-top, 30, 20, 0);
+    }
+  }
+}
+ol {
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: -10px;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @media only screen and (min-width: 800px) {
+    margin: get-vw(-10px);
+  }
+}
+
+.coll {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  margin: 10px;
+
+  @media only screen and (min-width: 800px) {
+    width: 100%;
+    @include coll(2, 20px);
+    margin: get-vw(10px);
+  }
+}
+
+::placeholder {
+  color: $textColor;
+}
+
+::selection {
+  background-color: $accentColor;
+  color: #fff;
+}
 
 label {
   cursor: pointer;
@@ -511,21 +489,22 @@ a {
 }
 
 .btn {
-  @include adaptive(max-width, 180, 180, 0);
   // @include _borderRadius(5px);
   @include _transition(all, 0.35s);
   line-height: 0;
   display: flex;
   padding: 5px;
+  @include adaptive(max-width, 180, 180, 0);
   width: 100%;
-  height: 35px;
+  @include adaptive(height, 50, 35, 0);
   align-items: center;
   justify-content: center;
-  background: $accentThird;
+  background: $accentColor;
   color: #fff;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  text-transform: uppercase;
 
   &::before,
   &::after {
@@ -537,21 +516,8 @@ a {
     left: 0;
   }
 
-  span {
-    position: absolute;
-    @include _transition(all, 0.35s);
-    display: block;
-    background: rgba(255, 255, 255, 0.35);
-    @include _borderRadius(50%);
-    animation-name: fullSize;
-    animation-timing-function: linear;
-    animation-duration: 0.5s;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-  }
-
   &::before {
-    background: $accentThird;
+    background: $accentColor;
     z-index: -1;
     width: 100%;
     top: 0;
@@ -560,15 +526,32 @@ a {
   &::after {
     // @include _borderRadius(5%);
     top: 50%;
-    background: $accentSecond;
+    background: $accentSecondColor;
     z-index: -1;
     width: 0;
 
     transform: translate(0, -50%);
   }
+  // .btn-active {
+  &-active {
+    background: $mainColor;
+    color: $accentColor;
+    border: 1px solid $accentColor;
 
+    &::before {
+      background: $mainColor;
+    }
+    .blink {
+      background: rgba($accentColor, 0.35);
+    }
+  }
+  // .btn__title{
+  &__title {
+    text-transform: uppercase;
+    @include adaptive(margin-left, 10, 5, 0);
+  }
   &:hover {
-    // background: $accentSecond;
+    // background: $accentSecondColor;
 
     &::after {
       // width: 400px;
@@ -577,10 +560,24 @@ a {
     }
   }
 }
+.blink {
+  position: absolute;
+  @include _transition(all, 0.35s);
+  display: block;
+  background: rgba($mainColor, 0.35);
+  @include _borderRadius(50%);
+  animation-name: fullSize;
+  animation-timing-function: linear;
+  animation-duration: 0.5s;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
 .t,
 h {
   @for $i from 1 through 6 {
     &#{$i} {
+      font-family: $userAltFont;
       margin: 0;
       padding: 0;
       line-height: 134%;
@@ -591,7 +588,7 @@ h {
   }
 
   &1 {
-    @include adaptive(font-size, 35, 22, 0);
+    @include adaptive(font-size, 40, 22, 0);
   }
 
   &2 {
@@ -599,19 +596,19 @@ h {
   }
 
   &3 {
-    @include adaptive(font-size, 25, 15, 0);
+    @include adaptive(font-size, 24, 18, 0);
   }
 
   &4 {
-    @include adaptive(font-size, 23, 17, 0);
+    @include adaptive(font-size, 20, 16, 0);
   }
 
   &5 {
-    @include adaptive(font-size, 20, 15, 0);
+    @include adaptive(font-size, 18, 15, 0);
   }
 
   &6 {
-    @include adaptive(font-size, 18, 14, 0);
+    @include adaptive(font-size, 16, 12, 0);
   }
 }
 
@@ -622,4 +619,171 @@ li,
 label {
   line-height: 1.35;
   @include adaptive(font-size, 18, 14, 0);
+}
+
+.section {
+  @include adaptive(padding-top, 100, 55, 0);
+
+  // section__title {
+  &__title {
+    @extend .t1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    position: relative;
+
+    &.__center {
+      text-align: center;
+    }
+
+    &.hr {
+      &::before,
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        @include adaptive(max-width, 350, 250, 0);
+        height: 1px;
+        opacity: 0.2;
+        background: $textColor;
+      }
+    }
+  }
+}
+
+.animate {
+  @include _transition(all, 0.56s);
+  opacity: 0;
+  transform: translate(0, 200px);
+
+  &.__show {
+    opacity: 1;
+    transform: translate(0, 0%);
+  }
+}
+
+.breadcrumbs {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  // .breadcrumbs__list {
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  // /breadcrumbs__item {
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      min-width: 10px;
+      width: 10px;
+      height: 10px;
+      background-image: url("../img/icons/icon-arrow.svg");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      order: 2;
+      @include adaptive(margin-right, 15, 10, 0);
+      @include adaptive(margin-left, 15, 10, 0);
+    }
+    &:last-child {
+      &::before {
+        display: none;
+      }
+      .breadcrumbs {
+        &__link {
+          color: $textColor;
+        }
+      }
+    }
+  }
+  // .breadcrumbs__link {
+  &__link {
+    color: $textThirdColor;
+    @include _transition(all, 0.25s);
+    &:hover {
+      color: $textColor;
+    }
+  }
+}
+.slider {
+  &-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include adaptive(height, 40, 20, 0);
+
+    // .slider-control__btn {
+    &__btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      @include adaptive(width, 36, 26, 0);
+      @include adaptive(min-width, 36, 26, 0);
+      height: 100%;
+      cursor: pointer;
+      @include _transition(all, 0.35s);
+      // height: 10px;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        background-image: url("../img/icons/icon-slider-arrow.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    // .slider-control__next {
+    &__next {
+      &::before {
+        transform: rotate(180deg);
+      }
+      &:hover {
+        transform: translate(10px, 0px);
+      }
+    }
+    // .slider-control__prev {
+    &__prev {
+      &:hover {
+        transform: translate(-10px, 0px);
+      }
+    }
+  }
+
+  // .slider-pagination {
+  &-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $userAltFont;
+    @include adaptive(font-size, 35, 20, 0);
+    @include adaptive(margin-right, 30, 20, 0);
+    @include adaptive(margin-left, 30, 20, 0);
+
+    height: 100%;
+    * {
+      display: inline-flex;
+      min-width: 15px;
+    }
+  }
+}
+.input {
+  border: 1px solid $accentThirdColor;
+  @include adaptive(height, 50, 35, 0);
 }
