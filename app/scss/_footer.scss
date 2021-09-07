@@ -23,6 +23,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
+    @media only screen and (max-width: 800px) {
+      flex-wrap: wrap;
+    }
   }
 
   // .footer__logo {
@@ -51,6 +54,14 @@
     align-items: stretch;
     color: $textThirdColor;
     width: 20%;
+    @media only screen and (max-width: 800px) {
+      width: 30%;
+      margin-bottom: 20px;
+    }
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+      order: 1;
+    }
   }
   // .footer__info {
   &__info {
@@ -83,18 +94,50 @@
       // .footer__menu-nav--catalog
       &--catalog {
         width: 15%;
+        @media only screen and (max-width: 800px) {
+          width: 30%;
+        }
+        @media only screen and (max-width: 800px) {
+          width: 100%;
+          margin-bottom: 20px;
+          order: 3;
+        }
       }
       // .footer__menu-nav--buyer-info {
       &--buyer-info {
         width: 10%;
+        @media only screen and (max-width: 800px) {
+          width: 30%;
+        }
+        @media only screen and (max-width: 800px) {
+          width: 50%;
+          margin-bottom: 20px;
+          order: 4;
+        }
       }
       // .footer__menu-nav--cooperation {
       &--cooperation {
         width: 15%;
+        @media only screen and (max-width: 800px) {
+          width: 30%;
+        }
+        @media only screen and (max-width: 800px) {
+          width: 50%;
+          margin-bottom: 20px;
+          order: 5;
+        }
       }
       // .footer__menu-nav--contacts {
       &--contacts {
         width: 15%;
+        @media only screen and (max-width: 800px) {
+          width: 30%;
+        }
+        @media only screen and (max-width: 800px) {
+          width: 100%;
+          margin-bottom: 20px;
+          order: 2;
+        }
       }
     }
     // .footer__menu-item {

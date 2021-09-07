@@ -6,6 +6,9 @@
       // @include adaptive(padding-bottom, 50, 25, 0);
       justify-content: flex-start;
       align-items: flex-start;
+      @media only screen and (max-width: 800px) {
+        flex-direction: column;
+      }
     }
     // .product-card-picture {
     &-picture {
@@ -21,6 +24,13 @@
         max-height: 100%;
         height: auto;
       }
+
+      @media only screen and (max-width: 800px) {
+        margin-right: 0;
+        @include adaptive(margin-bottom, 65, 30, 0);
+
+        width: 100%;
+      }
     }
     // .product-card-description {
     &-description {
@@ -29,6 +39,9 @@
       justify-content: flex-start;
       align-items: flex-start;
       flex-direction: column;
+      @media only screen and (max-width: 800px) {
+        width: 100%;
+      }
     }
 
     // .product-card-info {
@@ -104,13 +117,13 @@
       @include adaptive(margin-bottom, 30, 20, 0);
       width: 100%;
       display: none;
-      @media only screen and (min-width: 600px) {
+      @media only screen and (min-width: 800px) {
         &:not(&.__mobile) {
           display: inline-flex;
         }
       }
       &.__mobile {
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 800px) {
           display: inline-flex;
         }
       }
@@ -168,6 +181,9 @@
       align-items: center;
       width: 100%;
       @include adaptive(margin-bottom, 70, 30, 0);
+      @media only screen and (max-width: 600px) {
+        flex-direction: column;
+      }
     }
 
     // .product-card__counter Х
@@ -181,9 +197,9 @@
         justify-content: center;
         align-items: center;
         border: 1px solid $accentColor;
-        @include adaptive(width, 50, 25, 0);
-        @include adaptive(min-width, 50, 25, 0);
-        @include adaptive(height, 50, 25, 0);
+        @include adaptive(width, 50, 35, 0);
+        @include adaptive(min-width, 50, 35, 0);
+        @include adaptive(height, 50, 35, 0);
         position: relative;
         background: $mainColor;
         @include _transition(all, 0.35s);
@@ -228,40 +244,60 @@
       // .product-card__counter-number {
       &-number {
         @extend .t6;
+        font-family: $userFont;
         display: flex;
         justify-content: center;
         align-items: center;
         background: $mainColor;
         color: $textSecondColor;
         // @include adaptive(width, 50, 25, 0);
-        @include adaptive(min-width, 50, 25, 0);
-        @include adaptive(height, 50, 25, 0);
+        @include adaptive(min-width, 50, 35, 0);
+        @include adaptive(height, 50, 35, 0);
+      }
+      @media only screen and (max-width: 600px) {
+        margin-bottom: 20px;
       }
     }
     // .product-card__btn {
     &__btn {
       @include adaptive(margin-right, 15, 10, 0);
+
       &:last-of-type {
         margin-right: 0;
+        margin-bottom: 0;
+      }
+      @media only screen and (max-width: 600px) {
+        margin-right: 0;
+        @include adaptive(margin-bottom, 15, 10, 0);
+        width: 100%;
       }
     }
+
     // .product-card__order-btn {
     &__order-btn {
       max-width: unset;
       width: fit-content;
       @include adaptive(padding-right, 40, 20, 0);
       @include adaptive(padding-left, 40, 20, 0);
+      max-width: unset;
 
       .btn__title {
         margin-left: 0;
       }
     }
+    // product-card__cart-btn {
+    &__cart-btn {
+      max-width: unset;
+    }
     // product-card__favorite-btn
     &__favorite-btn {
-      @include adaptive(max-width, 50, 25, 0);
-      @include adaptive(width, 50, 25, 0);
-      @include adaptive(min-width, 50, 25, 0);
-      @include adaptive(height, 50, 25, 0);
+      @include adaptive(max-width, 50, 35, 0);
+      @include adaptive(width, 50, 35, 0);
+      @include adaptive(min-width, 50, 35, 0);
+      @include adaptive(height, 50, 35, 0);
+      @media only screen and (max-width: 600px) {
+        align-self: flex-end;
+      }
     }
     // .product-card__collapsible {
     &__collapsible {

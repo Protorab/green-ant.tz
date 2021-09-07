@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
       this.classList.toggle("--clicked");
       body.classList.toggle("--fixed");
       menu.classList.toggle("--show");
-      e.preventDefault;
+      e.preventDefault();
     });
   }
   window.onresize = function () {

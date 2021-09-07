@@ -101,6 +101,9 @@
     &-wrapper {
       @include adaptive(max-width, 200, 190, 0);
       height: auto;
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
     }
     &__trigger {
       padding-right: 10px;

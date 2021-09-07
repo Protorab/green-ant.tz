@@ -5,6 +5,9 @@
     position: relative;
     // .related-section__title {
     &__title {
+      @media only screen and (max-width: 600px) {
+        margin-bottom: 15px;
+      }
     }
   }
 
@@ -14,6 +17,9 @@
     justify-content: space-between;
     align-items: center;
     @include adaptive(margin-bottom, 40, 20, 0);
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+    }
   }
 
   // .related-slider {
@@ -22,9 +28,15 @@
     // .related-slider__control {
     &__control {
       // position: absolute;
+      @media only screen and (max-width: 600px) {
+        align-self: flex-end;
+      }
     }
   }
-
+  // related-slides {
+  &-slides {
+    align-items: stretch;
+  }
   // .related-slide {
   &-slide {
     display: flex;
@@ -34,6 +46,7 @@
     position: relative;
     border: 1px solid #ebe8e1;
     background: $mainColor;
+    height: auto;
     @include adaptive(padding-top, 30, 25, 0);
     @include adaptive(padding-right, 20, 15, 0);
     @include adaptive(padding-bottom, 25, 20, 0);
@@ -147,6 +160,7 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
+      z-index: 3;
     }
     // .related-slide__btn {
     &__btn {
@@ -154,8 +168,8 @@
       width: fit-content;
       @include adaptive(height, 45, 35, 0);
       text-transform: uppercase;
-      @include adaptive(padding-right, 35, 20, 0);
-      @include adaptive(padding-left, 35, 20, 0);
+      @include adaptive(padding-right, 35, 10, 0);
+      @include adaptive(padding-left, 35, 10, 0);
     }
     // .related-slide__order {
     &__order {

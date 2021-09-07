@@ -164,9 +164,6 @@ section,
 .section {
   width: 100%;
   display: flex;
-  .--fixed & {
-    filter: blur(10px);
-  }
 }
 .wrapper {
   max-width: 1650px;
@@ -634,6 +631,7 @@ label {
     align-items: center;
     text-transform: uppercase;
     position: relative;
+    white-space: nowrap;
 
     &.__center {
       text-align: center;
@@ -649,6 +647,12 @@ label {
         height: 1px;
         opacity: 0.2;
         background: $textColor;
+      }
+      &::before {
+        @include adaptive(margin-right, 20, 15, 0);
+      }
+      &:after {
+        @include adaptive(margin-left, 20, 15, 0);
       }
     }
   }
@@ -670,12 +674,15 @@ label {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+
   // .breadcrumbs__list {
   &__list {
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
   }
   // /breadcrumbs__item {
   &__item {
@@ -713,6 +720,7 @@ label {
   &__link {
     color: $textThirdColor;
     @include _transition(all, 0.25s);
+    white-space: nowrap;
     &:hover {
       color: $textColor;
     }

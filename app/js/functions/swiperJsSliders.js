@@ -32,6 +32,11 @@ const swiperJsSliders = () => {
       },
       1280: {
         spaceBetween: 20,
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+      },
+      1366: {
+        spaceBetween: 20,
         slidesPerView: 4,
         slidesPerGroup: 4,
       },

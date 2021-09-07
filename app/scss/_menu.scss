@@ -7,40 +7,44 @@
   @include _transition(all, 0.5s);
   //.menu__burger {
   &__burger {
-    z-index: 2;
+    z-index: 20;
     display: none;
     flex-direction: column;
     justify-content: space-around;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 20px;
     position: relative;
     cursor: pointer;
+    @include adaptive(margin-right, 25, 15, 0);
     //.menu__burger span {
     span {
       display: block;
-      // position: absolute;
-      width: 40px;
-      height: 5px;
+      position: absolute;
+      width: 30px;
+
+      height: 3px;
       background: $accentColor;
       @include _borderRadius(2px);
       @include _transition(all, 0.5s);
       opacity: 1;
 
       &:nth-child(1) {
+        top: 0;
       }
 
       &:nth-child(2) {
       }
 
       &:nth-child(3) {
+        bottom: 0;
       }
     }
     //.menu__burger.--clicked
     &.--clicked {
       span {
         &:nth-child(1) {
-          transform: rotate(45deg) translate(9px, 10px);
-          // top: 17.5px;
+          transform: rotate(45deg);
+          top: 8.5px;
         }
 
         &:nth-child(2) {
@@ -49,8 +53,8 @@
         }
 
         &:nth-child(3) {
-          transform: rotate(-45deg) translate(9px, -10px);
-          // bottom: 17.5px;
+          transform: rotate(-45deg);
+          bottom: 8.5px;
         }
       }
     }
@@ -71,6 +75,7 @@
 
     @media only screen and (max-width: 1152px) {
       @include adaptive(width, 300, 300, 0);
+      height: 100vh;
       position: fixed;
       flex-direction: column;
       align-items: flex-start;
@@ -84,7 +89,7 @@
       transform: translate(-100%, 0);
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
       border-bottom: 8px solid $accentSecondColor;
-
+      z-index: 10;
       &:not(.--show) {
         transition-delay: 0.4s;
       }
@@ -128,6 +133,7 @@
           pointer-events: all;
           visibility: visible;
         }
+        // .menu__arrow
         &__arrow {
           &::before {
             transform: rotate(45deg);
@@ -147,8 +153,10 @@
       transform: translate(-100%, 0);
       opacity: 0;
       align-items: center;
-      justify-content: center;
-      padding-right: 20px;
+      justify-content: flex-start;
+      margin-right: 0;
+      margin-bottom: 10px;
+      // padding-right: 20px;
 
       &::before,
       &::after {
@@ -215,6 +223,9 @@
     &::after {
       // left: 1px;
     }
+    @media only screen and (max-width: 1152px) {
+      width: 9px;
+    }
   }
 
   ul {
@@ -223,6 +234,9 @@
 
   a {
     @include _transition(all, 0.5s);
+    @media only screen and (max-width: 1152px) {
+      @include adaptive(font-size, 20, 16, 0);
+    }
   }
 
   // .menu__link {
@@ -235,7 +249,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     position: relative;
     -webkit-text-stroke: 1px transparent;
 
@@ -254,7 +267,9 @@
       background: $accentSecondColor;
       transform: scale(0, 1);
     }
-    @media only screen and (min-width: 1152px) {
+    @media only screen and (min-width: 1153px) {
+      text-align: center;
+
       &:hover {
         color: $accentSecondColor;
         -webkit-text-stroke-color: $accentSecondColor;
@@ -263,11 +278,13 @@
         }
       }
     }
+    @media only screen and (max-width: 1152px) {
+      justify-content: flex-start;
+    }
 
     @media only screen and (max-width: 1024px) {
-      align-items: center;
-      justify-content: flex-start;
-      padding-left: 70px;
+      align-items: flex-start;
+      align-items: flex-start;
     }
   }
 
@@ -339,8 +356,10 @@
 
   @media only screen and (max-width: 1152px) {
     flex-direction: column;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
     align-items: flex-start;
     justify-content: flex-start;
+    padding-right: 70px;
+    padding-left: 70px;
   }
 }
