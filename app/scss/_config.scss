@@ -476,6 +476,7 @@ button {
   @extend .p;
   border: none;
   cursor: pointer;
+  background: none;
 }
 
 a {
@@ -783,7 +784,40 @@ label {
     }
   }
 }
+.reset {
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  @include adaptive(width, 25, 20, 0);
+  @include adaptive(height, 25, 20, 0);
+  right: 20px;
+  @include _transition(all, 0.2s);
+  opacity: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background: $textColor;
+  }
+  &::before {
+    transform: rotate(-45deg);
+  }
+  &::after {
+    transform: rotate(45deg);
+  }
+}
 .input {
   border: 1px solid $accentThirdColor;
   @include adaptive(height, 50, 35, 0);
+  &:active,
+  &:focus {
+    & ~ .reset {
+      opacity: 1;
+    }
+  }
 }

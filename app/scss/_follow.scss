@@ -9,6 +9,9 @@
   // .follow-form {
   &-form {
     @extend .wrapper;
+    flex-direction: row;
+    @include adaptive(margin-bottom, 60, 30, 0);
+
     // .follow-form__wrapper {
     &__wrapper {
       display: flex;
@@ -16,7 +19,6 @@
       position: relative;
       justify-content: flex-start;
       align-items: center;
-      @include adaptive(margin-bottom, 60, 30, 0);
     }
     // .follow-form__label {
     &__label {
@@ -40,7 +42,7 @@
     }
     // .follow-form__input {
     &__input {
-      width: 70%;
+      width: 100%;
       @include adaptive(padding-left, 45, 35, 0);
     }
     // .follow-form__btn {

@@ -16,7 +16,7 @@
   opacity: 0;
   visibility: hidden;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.33);
+  background: rgba($textColor, 0.7);
 
   // .modal__body
   &__body {
@@ -25,10 +25,14 @@
     max-width: 95%;
     max-height: 97%;
     display: flex;
+    // .modal__body.__form {
+    &.__form {
+    }
 
-    // align-items: center;
-    // justify-content: center;
-    // .modal__body_Img
+    // .modal__body.__review {
+    &.__review {
+    }
+    // .modal__body.__Img {
     &.__img {
       max-width: 95%;
       width: 100%;
@@ -50,18 +54,25 @@
         align-content: center;
       }
     }
+    // .modal__body.__search {
+    &.__search {
+      // @include adaptive(height, 380, 240, 0);
+      width: 100%;
+      min-width: 100%;
+      align-self: flex-start;
+    }
   }
 
   // .modal__content
   &__content {
     cursor: default;
-    @include _transition(all, 0.2s);
+    @include _transition(all, 0.28s);
     background: $mainColor;
     display: flex;
     position: relative;
     z-index: 2;
     opacity: 0;
-    transform: translate(0px, -50%);
+    transform: translate(0px, -100%);
     perspective-origin: 30px;
     width: 100%;
     height: 100%;
@@ -81,7 +92,10 @@
     width: 25px;
     height: 25px;
     display: flex;
-    @include _transition(transform, 0.3s);
+    justify-content: center;
+    align-items: center;
+
+    @include _transition(all, 0.3s);
 
     span {
       position: absolute;
@@ -92,27 +106,61 @@
       width: 100%;
       height: 3px;
       bottom: 10px;
+      @include _transition(all, 0.3s);
 
       &:nth-child(2) {
         transform: rotate(-45deg);
       }
     }
 
-    &:hover {
-      transform: scale(1.1);
+    &.__img {
+      width: 35px;
+      height: 35px;
+
+      background: $accentColor;
+      @include _borderRadius(50%);
+      span {
+        width: 25px;
+        background: $mainColor;
+        right: unset;
+        bottom: unset;
+      }
+      @media only screen and (min-width: 1152px) {
+        &:hover {
+          background: $mainColor;
+          span {
+            background: $accentColor;
+          }
+        }
+      }
+    }
+    @media only screen and (min-width: 1152px) {
+      &:hover {
+        span {
+          background: $accentColor;
+        }
+      }
     }
   }
 
   // .modal__form
   &__form {
-    max-width: 500px;
+    max-width: 450px;
     margin-left: auto;
     margin-right: auto;
-
+    // .modal__form.__review {
+    &.__review {
+      max-width: 550px;
+    }
     // .modal-form__content
     &-content {
       border: none;
       padding: 100px 20px 50px;
+      @include adaptive(padding-top, 80, 65, 0);
+      @include adaptive(padding-right, 25, 20, 0);
+      @include adaptive(padding-bottom, 25, 15, 0);
+      @include adaptive(padding-left, 25, 20, 0);
+
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -120,9 +168,10 @@
 
     // .modal__form-title
     &-title {
-      position: absolute;
+      // position: absolute;
       display: flex;
-      @extend .t3;
+      @extend .t4;
+      font-weight: 600;
       text-transform: uppercase;
       margin-left: auto;
       margin-right: auto;
@@ -130,6 +179,8 @@
       left: 0;
       width: 100%;
       padding: 0 25px;
+      margin: 0;
+
       text-align: center;
       align-items: center;
       justify-content: center;
@@ -137,13 +188,29 @@
 
     // .modal__form-input
     &-input {
-      margin-bottom: 10px;
-
-      &:last-child {
-        margin-bottom: 15px;
+      @include _borderRadius(0);
+      @include adaptive(padding-top, 15, 10, 0);
+      @include adaptive(padding-bottom, 15, 10, 0);
+      padding-left: 0;
+      border-bottom: 1px solid $textColor;
+      &:last-of-type {
+        @include adaptive(margin-bottom, 20, 15, 0);
       }
     }
+    // .modal__form-textarea {
+    &-textarea {
+      border: 1px solid $textColor;
+    }
 
+    // .modal__form-checkbox {
+    &-checkbox {
+    }
+    // .modal__form-btn {
+    &-btn {
+      @include adaptive(margin-top, 40, 30, 0);
+
+      max-width: 100%;
+    }
     // .modal__form-textarea
     &-textarea {
       margin-bottom: 15px;
@@ -159,6 +226,7 @@
     cursor: pointer;
     margin: 0 auto;
     background: unset;
+    background: $mainColor;
     display: grid;
     grid-template-columns: repeat(1, 100%);
     justify-content: center;
@@ -174,7 +242,7 @@
       object-fit: contain;
       object-position: center;
 
-      @media only screen and (min-width: 600px) {
+      @media only screen and (min-width: 1155px) {
         width: 100%;
         max-width: 100%;
         height: 100%;
@@ -183,7 +251,7 @@
       }
     }
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1155px) {
       // width: fit-content;
       width: auto;
       height: 100%;
@@ -197,9 +265,127 @@
       transform: scale(1);
     }
   }
+  // .modal__search {
+  &__search {
+    width: 100%;
+
+    height: fit-content;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    @include adaptive(padding-top, 70, 50, 0);
+    @include adaptive(padding-bottom, 30, 25, 0);
+    position: relative;
+
+    .modal__close {
+      transform: translate(0, -80%);
+      opacity: 0;
+      // transition-delay: .25s;
+
+      .--open & {
+        transform: translate(0, 0%);
+        opacity: 1;
+      }
+    }
+
+    // .modal__search-content
+    &-content {
+      @extend .wrapper;
+      height: fit-content;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      @include _transition(all, 0.5s);
+      transform: translate(0, -80%);
+      opacity: 0;
+      // transition-delay: .25s;
+
+      .--open & {
+        transform: translate(0, 0%);
+        opacity: 1;
+      }
+    }
+
+    // .modal__search-input
+    &-input {
+      background: transparent;
+      @include _borderRadius(0);
+      @include adaptive(padding-top, 15, 10, 0);
+      @include adaptive(padding-bottom, 15, 10, 0);
+      padding-left: 0;
+      border-bottom: 2px solid $textColor;
+      width: 100%;
+
+      // .modal__search-input__wrapp
+      &__wrapp {
+        display: flex;
+        width: 100%;
+        position: relative;
+      }
+      &:focus {
+        & ~ .modal__search-reset {
+          opacity: 1;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1024px) {
+      height: 100%;
+    }
+    // .modal__search-reset {
+    &-reset {
+      position: absolute;
+      height: 100%;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include adaptive(width, 60, 55, 0);
+      @include adaptive(right, 60, 55, 0);
+      @include _transition(all, 0.35s);
+
+      opacity: 0;
+      span {
+        display: inline-block;
+        width: 20px;
+        height: 2px;
+        position: absolute;
+        background: $textColor;
+        @include _transition(all, 0.35s);
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          transform: rotate(-45deg);
+        }
+      }
+
+      @media only screen and (min-width: 1155px) {
+        &:hover {
+          span {
+            background: $accentColor;
+          }
+        }
+      }
+    }
+    // .modal__search-btn
+    &-btn {
+      position: absolute;
+      height: 100%;
+      right: 0;
+      text-transform: uppercase;
+      font-weight: 500;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      @include adaptive(width, 60, 55, 0);
+    }
+  }
   &.--open {
     opacity: 1;
     visibility: visible;
+    // backdrop-filter: blur(10px);
   }
 }
 

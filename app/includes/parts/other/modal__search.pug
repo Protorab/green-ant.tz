@@ -1,0 +1,23 @@
+#modal__search.modal
+  .modal__body.__search
+    form.modal__content.modal__search(
+      action="#",
+      method="post",
+      enctype="multipart/form-data",)
+      a.modal__close.close__modal(
+        href="#",
+        role="button") 
+        span
+        span
+      .modal__search-content
+        div.modal__search-input__wrapp
+          input#search__input.modal__search-input(
+            required,
+            type="search",
+            name="search_text",
+            placeholder="Введите текст для поиска")
+          button.modal__search-reset(type="reset") 
+            span
+            span
+          button.modal__search-btn(
+            type='submit') Найти 
